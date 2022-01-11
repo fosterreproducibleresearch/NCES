@@ -20,7 +20,7 @@ Dowload DL-Learner-1.4.0 from [github](https://github.com/SmartDataAnalytics/DL-
 
 Clone DL-Foil from [bitbucket](https://bitbucket.org/grizzo001/dl-foil.git) into Method
 
-Download Datasets from [drive](https://drive.google.com/file/d/1rfCujY256RE8OMexLAbNpNOXc8BW2kPC/view?usp=sharing), extract it into NCES/Method and rename the folder as Datasets
+Download Datasets from [drive](https://drive.google.com/file/d/16tmjo1OZ5MqY_JwXUg5Fj1WxfWtOXACe/view?usp=sharing), extract it into NCES/Method and rename the folder as Datasets
 
 ## Reproducing the reported results
 
@@ -36,12 +36,12 @@ Download Datasets from [drive](https://drive.google.com/file/d/1rfCujY256RE8OMex
 
 *Remark: name_of_knowledge_base is one of carcinogenesis, mutagenesis, family-benchmark, semantic_bible, vicodi*
 
-### DL-Learner
+### DL-Learner (Lehmann et al.)
 
 *Open a terminal and navigate into Method/dllearner/* ``` cd NCES/Method/dllearner/```
 - Reproduce CELOE, OCEL, and ELTL concept learning results: ``` python reproduce_dllearner_experiment.py --algo --kb --max_runtime --num_probs```
 
-### DL-Foil
+### DL-Foil (Fanizzi et al.)
 
 *Open a terminal and navigate into Method/dl-foil/* ``` cd NCES/Method/dl-foil/```
 
@@ -51,9 +51,9 @@ Download Datasets from [drive](https://drive.google.com/file/d/1rfCujY256RE8OMex
 
 - Reproduce concept learning results: ` mvn -e exec:java -Dexec.mainClass=it.uniba.di.lacam.ml.DLFoilTest -Dexec.args=DL-Foil2/kb_config.xml `
 
-### ECII
+### ECII (Sarker et al.)
 
-*Open a terminal and navigate into Method/dl-foil/* ``` cd NCES/Method/ecii/```
+*Open a terminal and navigate into Method/ecii/* ``` cd NCES/Method/ecii/```
 
 - Run `python generate_config_ecii.py --kb "knowledge base name(s)" ` to prepare configuration files
 
