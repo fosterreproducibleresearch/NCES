@@ -1,4 +1,4 @@
-name: cel
+name: cl
 channels:
   - pytorch
   - conda-forge
@@ -108,13 +108,27 @@ dependencies:
   - zstd=1.4.5=h9ceee32_0
   - pip:
     - attrs==21.2.0
+    - chardet==4.0.0
+    - docutils==0.18.1
+    - filelock==3.0.12
+    - gdown==3.13.0
+    - gensim==4.1.2
+    - idna==2.10
     - iniconfig==1.1.1
     - isodate==0.6.0
+    - kivy-garden==0.1.4
     - owlready2==0.30
     - packaging==20.9
     - pluggy==0.13.1
     - py==1.10.0
+    - pysocks==1.7.1
     - pytest==6.2.4
+    - python-slugify==5.0.2
     - rdflib==5.0.0
+    - requests==2.25.1
+    - smart-open==5.2.1
+    - text-unidecode==1.3
     - toml==0.10.2
-prefix: /home/user/.conda/envs/cel
+    - tqdm==4.61.2
+    - urllib3==1.26.6
+prefix: /home/user/.conda/envs/cl

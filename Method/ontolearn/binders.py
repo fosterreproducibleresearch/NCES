@@ -143,7 +143,7 @@ class DLLearnerBinder:
             max_runtime = 10000
         pathToConfig = self.write_dl_learner_config(pos=pos, neg=neg)
         if self.name == 'ocel':
-            res = subprocess.run([self.binary_path + 'bin/cli', pathToConfig], stdout=subprocess.PIPE, universal_newlines=True, timeout=240)
+            res = subprocess.run([self.binary_path + 'bin/cli', pathToConfig], stdout=subprocess.PIPE, universal_newlines=True, timeout=300)
         else:
             res = subprocess.run([self.binary_path + 'bin/cli', pathToConfig], stdout=subprocess.PIPE, universal_newlines=True)
         self.best_predictions = self.parse_dl_learner_output(res.stdout.splitlines())

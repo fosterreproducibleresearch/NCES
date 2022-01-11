@@ -1,9 +1,9 @@
 from typing import Final
-import copy, sys, os
+import copy, sys, os, numpy as np
 sys.path.append(os.path.dirname(os.path.realpath(__file__)).split('helper_classes')[0])
 sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 from owlapy.render import DLSyntaxObjectRenderer
-from f1 import F1
+from metrics import Accuracy, F1
 
 class SyntaxChecker:
     '''-Python class for checking and validating/correcting/suggesting DL class expressions
@@ -15,13 +15,13 @@ class SyntaxChecker:
     
     def __init__(self, knowledge_base):
         self.knowledge_base = knowledge_base
-        renderer = DLSyntaxObjectRenderer()
+        self.renderer = DLSyntaxObjectRenderer()
         atomic_concepts = frozenset(knowledge_base.ontology().classes_in_signature())
-        self.concept_str_to_concept = {renderer.render(a): a for a in atomic_concepts}
+        self.concept_str_to_concept = {self.renderer.render(a): a for a in atomic_concepts}
         self.concept_str_to_concept.update({'⊤': knowledge_base.thing, '⊥': knowledge_base.nothing})
         self.role_str_to_role = {r.get_iri().get_remainder(): r for r in knowledge_base.ontology().object_properties_in_signature()}
         self.role_names = frozenset(self.role_str_to_role.keys())
-        self.atomic_concept_names = frozenset([renderer.render(a) for a in atomic_concepts])
+        self.atomic_concept_names = frozenset([self.renderer.render(a) for a in atomic_concepts])
         self.atoms = self.role_names.union(self.atomic_concept_names).union({'⊔', '⊓', '∃', '∀', '¬', '⊤', '⊥', '.', ' '})
         
     def split(self, atom):
@@ -393,15 +393,19 @@ class SyntaxChecker:
 #                self.class_expressions += [self.knowledge_base.union(get_conjunctions(concept_components, joins))]
         return self
     
-    def evaluate(self, pos_instances, verbose = True):
+    def evaluate(self, pos_examples, verbose = True):
         Instances = []
+        all_individuals = set(self.knowledge_base.individuals())
         for ce in self.class_expressions:
             Instances += [{ind.get_iri().as_str().split("/")[-1] for ind in self.knowledge_base.individuals(ce)}]
         #instances += [{ind.get_iri().as_str().split("/")[-1] for ind in self.knowledge_base.individuals(self.class_expression[1])}]
-        f1 = [F1().score(set(pos_instances), instances) for instances in Instances]
+        f1 = [F1.score(set(pos_examples), instances) for instances in Instances]
+        acc = [Accuracy.score(set(pos_examples), instances, all_individuals) for instances in Instances]
+        best_concept = self.renderer.render(self.class_expressions[np.argmax(f1)])
         if verbose:
+            print("Accuracy: {}%".format([100*s for s in acc]))
             print("F1 score: {}%".format([100*s for s in f1]))
-        return 100*max(f1)
+        return best_concept, 100*max(acc), 100*max(f1)
         
                           
                           
