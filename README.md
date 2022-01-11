@@ -1,7 +1,7 @@
 # Neural Class Expression Synthesis (NCES)
 Implementation of neural class expression synthesizers (NCES)
 
-![ncel-dlo](ncel-dlo.pdf)
+![ncel-dlo](ncel-dlo.png)
 
 ## Installation
 
