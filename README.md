@@ -1,6 +1,7 @@
 # Neural Class Expression Synthesis (NCES)
 Implementation of neural class expression synthesizers (NCES)
 
+![nces](ncel-dlo.pdf)
 
 ## Installation
 
@@ -24,6 +25,7 @@ Download Datasets from [drive](https://drive.google.com/file/d/1rfCujY256RE8OMex
 ## Reproducing the reported results
 
 ### NCES (Ours)
+
 
 *Open a terminal and navigate into Method/reproduce_results/* ``` cd NCES/Method/reproduce_results/```
 - Reproduce training NCES: ``` python reproduce_training_concept_synthesizers_[name_of_knowledge_base]_kb.py```
