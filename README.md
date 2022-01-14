@@ -28,7 +28,7 @@ Download Datasets from [drive](https://drive.google.com/file/d/16tmjo1OZ5MqY_JwX
 
 
 *Open a terminal and navigate into Method/reproduce_results/* ``` cd NCES/Method/reproduce_results/```
-- Reproduce training NCES: ``` python reproduce_training_concept_synthesizers_[name_of_knowledge_base]_kb.py```
+- Reproduce training NCES: ``` python train_nces/reproduce_training_concept_synthesizers_[name_of_knowledge_base]_kb.py```
 
 - Reproduce training NCES on all KBs: ``` sh reproduce_training_nces_on_all_kbs.sh```
 
