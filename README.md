@@ -62,6 +62,12 @@ Download Datasets from [drive](https://drive.google.com/file/d/16tmjo1OZ5MqY_JwX
 - Run `python parse_ecii_output.py --kb "knowledge base name(s)" ` to parse the output and save the results such as f_measure and runtime
 
 
+### CLIP (Kouagou et al.)
+
+- Download CLIP scripts and pretrained models from [drive](https://drive.google.com/file/d/1fIvJQdW2yvyrJCsX0mtkSx9dx7CDx6OW/view?usp=sharing), extract it into NCES/Method/clip/Method/ and rename the folder as Datasets 
+
+- Reproduce concept learning results with CLIP: ``` python clip/Method/reproduce_results/celoe_clp/reproduce_learning_concepts_with_length_predictor_[name_of_knowledge_base]_kb.py ```
+
 
 ## Acknowledgement 
 We based our implementation on the open source implementation of [ontolearn](https://docs--ontolearn-docs-dice-group.netlify.app/). We would like to thank the Ontolearn team for the readable codebase.
