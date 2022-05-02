@@ -8,19 +8,22 @@ Implementation of neural class expression synthesizers (NCES)
 Clone this repository:
 ```
 https://github.com/fosterreproducibleresearch/NCES.git
-```
-First install Anaconda3, Java 8+, Maven 3.6.3+, then all required librairies (for NCES) by running the following:
+``` 
+
+Make sure Anaconda3 is installed in your working environment then run the following to install all required librairies for NCES:
 ```
 conda env create -f environment.yml
 ```
-A conda environment (cl) will be created. Next activate the environment:
-``` conda activate cl```
+A conda environment (nces) will be created. Next activate the environment:
+``` conda activate nces```
+
+Download Datasets from [drive](https://drive.google.com/file/d/16tmjo1OZ5MqY_JwXUg5Fj1WxfWtOXACe/view?usp=sharing), extract it into NCES/Method and rename the folder as Datasets
+
+To run search based algorithms CELOE, OCEL, ELTL and ECII, install Java 8+ and Maven 3.6.3+
 
 Dowload DL-Learner-1.4.0 from [github](https://github.com/SmartDataAnalytics/DL-Learner/releases) and extract it into the directory Method
 
 Clone DL-Foil from [bitbucket](https://bitbucket.org/grizzo001/dl-foil.git) into Method
-
-Download Datasets from [drive](https://drive.google.com/file/d/16tmjo1OZ5MqY_JwXUg5Fj1WxfWtOXACe/view?usp=sharing), extract it into NCES/Method and rename the folder as Datasets
 
 ## Reproducing the reported results
 

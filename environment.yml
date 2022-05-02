@@ -1,4 +1,4 @@
-name: cl
+name: nces
 channels:
   - pytorch
   - conda-forge
@@ -131,4 +131,4 @@ dependencies:
     - toml==0.10.2
     - tqdm==4.61.2
     - urllib3==1.26.6
-prefix: /home/user/.conda/envs/cl
+prefix: /home/user/.conda/envs/nces
