@@ -7,7 +7,7 @@ Implementation of neural class expression synthesizers (NCES)
 
 Clone this repository:
 ```
-https://github.com/ConceptLengthLearner/NCES.git
+https://github.com/fosterreproducibleresearch/NCES.git
 ```
 First install Anaconda3, Java 8+, Maven 3.6.3+, then all required librairies (for NCES) by running the following:
 ```
