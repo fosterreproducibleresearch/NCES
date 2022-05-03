@@ -7,7 +7,7 @@ from metrics import Accuracy, F1
 
 class SyntaxChecker:
     '''-Python class for checking and validating/correcting/suggesting DL class expressions
-       -The got methods that can query the instances of a class expression and compute the f-measure between two sets of instances    
+       -Includes methods that can query the instances of a class expression and compute the f-measure w.r.t. positive and negative examples    
        -Requires a KnowledgeBase object (see ontolearn (a.k.a OntoPy) library)
     '''
     
@@ -161,7 +161,7 @@ class SyntaxChecker:
             if count == max_num_trials: break
         return seq.split()
     
-    def get_multiple_suggestions(self, expression_list):
+    def get_suggestions(self, expression_list):
         simple_expr = all([any([not expression_list[i-1] in self.atomic_concept_names.union({'⊤', '⊥'}), not expression_list[i+1] in\
                         self.atomic_concept_names.union({'⊤', '⊥'})]) for i in range(len(expression_list)) if expression_list[i] in ['⊔', '⊓']]) or\
         (set(expression_list).issubset(self.atomic_concept_names.union({'⊔', '⊓'})) and expression_list.count('⊔')*expression_list.count('⊓') == 0) # if there is no need to
@@ -380,7 +380,7 @@ class SyntaxChecker:
 #            return disjunctions
 
         list_atoms = self.correct(expression)
-        possible_concepts = list(self.get_multiple_suggestions(list_atoms))
+        possible_concepts = list(self.get_suggestions(list_atoms))
 #        print('Possible CEs: ', possible_concepts)
         self.class_expressions = []
         for c in possible_concepts:
